@@ -1,0 +1,25 @@
+.videoRec {
+    display: flex;
+    font-size: 0.9rem;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.videoInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-self: flex-start;
+}
+
+.title {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.channel, .stats {
+    font-size: 0.9rem;
+    color: rgb(110, 110, 110);
+}
+

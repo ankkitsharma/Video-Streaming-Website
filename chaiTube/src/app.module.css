@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+   font-family: "Roboto", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+body {
+   margin: 0;
+   background-color: #f5f5f5;
+   overflow: hidden;
+}
+
+
+.Body {
+   display:  flex;
+}
+
+
+/* .Navbar {
+   flex: 1;
+}
+
+.Outlet {
+   flex: 7;
+} */

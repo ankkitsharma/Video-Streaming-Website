@@ -1,0 +1,47 @@
+.video {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 30px;
+}
+
+.thumbnail {
+  border-radius: 4%;
+  width: 350px;
+}
+
+.thumbnail:hover {
+  border-radius: 0%;
+}
+
+.videoInfo {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.channel {
+  /* font-weight: 600; */
+  color: rgb(100, 100, 100);
+  /* font-size: 0.9rem; */
+}
+
+p {
+  margin: 0;
+}
+
+.stats {
+  color: rgb(100, 100, 100);
+  font-size: 0.9rem;
+}

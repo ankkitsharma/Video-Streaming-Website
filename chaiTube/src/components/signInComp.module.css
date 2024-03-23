@@ -1,0 +1,25 @@
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 226, 226);
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.formItem {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.signInForm button {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 15px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}

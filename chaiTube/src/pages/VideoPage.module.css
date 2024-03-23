@@ -1,0 +1,187 @@
+.VideoPage {
+  margin-left: 30px;
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+  display: flex;
+  overflow: auto;
+  gap: 20px;
+  height: calc(100vh - 80px);
+  width: calc(100vw - 245px - 30px);
+}
+
+:root {
+  --videoPageHeight: calc(100vh - 65px);
+  --videoPageWidth: calc(100vw - 245px - 30px);
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 5;
+}
+
+.recommendation {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+video {
+  border-radius: 1%;
+  width: 100%;
+  height: auto;
+}
+
+.videoReact {
+  display: flex;
+  justify-content: space-between;
+}
+
+.videoReactLeft {
+  display: flex;
+  gap: 10px;
+}
+
+.videoReactRight {
+  display: flex;
+  gap: 20px;
+}
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.channelName {
+  font-weight: 700;
+}
+
+.channelState {
+  font-size: 0.9rem;
+}
+
+.videoTitle {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.box {
+  background-color: rgb(233, 233, 233);
+  padding: 0px 10px;
+  border-radius: 15px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.vl {
+  border-left: 1px solid rgb(172, 172, 172);
+  height: 20px;
+}
+
+.description.box {
+  padding: 17px 15px;
+  flex-direction: column;
+  align-items: unset;
+}
+
+.videoStats {
+  font-weight: bold;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentsHeader {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.inputComment {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.addComment {
+  width: 100%;
+  border-bottom: 1px rgb(233, 233, 233) solid;
+}
+
+.recentComments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment {
+  display: flex;
+  gap: 10px;
+}
+
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.commentReact {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.commentReact > span {
+  display: flex;
+  align-items: center;
+}
+
+.inputField {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addCommentOptions {
+  display: flex;
+  align-self: flex-end;
+  /* justify-content: flex-end; */
+  gap: 10px;
+}
+
+.commentSubmit {
+  border: none;
+  background-color: rgb(233, 233, 233);
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.07rem;
+}
+
+.cancelComment {
+  border: none;
+  /* background-color: rgb(29, 74, 82); */
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.07rem;
+}

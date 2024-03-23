@@ -1,0 +1,21 @@
+.SearchPage {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  gap: 30px;
+  width: calc(100vw - 245px + 50px);
+  overflow: auto;
+  height: calc(100vh - 65px);
+}
+
+.video {
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
