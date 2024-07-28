@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import styles from "./VideoPage.module.css";
 import ChannelProfile from "../components/ChannelProfile";
 import VideoRec from "../components/VideoRec";
@@ -8,19 +8,14 @@ import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import PlaylistAddOutlinedIcon from "@mui/icons-material/PlaylistAddOutlined";
 import axios from "axios";
-import {
-  useLoaderData,
-  Form,
-  redirect,
-  useNavigate,
-  Link,
-} from "react-router-dom";
+import { useLoaderData, Form, redirect, useNavigate } from "react-router-dom";
 import { userContext } from "../Context/userContext";
 import { nanoid } from "nanoid";
 
 export async function loader({ params }) {
   try {
     const response1 = await axios.get("/api/video/getVideo/" + params.videoId);
+    console.log("response1.data ", response1.data);
     const response2 = await axios.get(
       "/api/comments/getComments/" + params.videoId
     );
@@ -206,12 +201,13 @@ export default function VideoPage() {
     <div className={styles.VideoPage}>
       <div className={styles.video}>
         <video width="1236" height="695" controls>
-          <source src={video.videourl} type="video/mp4" />
+          {console.log("video.videourl ", video.videourl)}
+          <source src={"/" + video.videourl} type="video/mp4" />
         </video>
         <div className={styles.videoTitle}>{video.title}</div>
         <div className={styles.videoReact}>
           <div className={styles.videoReactLeft}>
-            <ChannelProfile imgLink={video.img} />
+            <ChannelProfile imgLink={user?.img} />
             <div className={styles.profileInfo}>
               <p className={styles.channelName}>{video.username}</p>
               <p className={styles.channelState}>
