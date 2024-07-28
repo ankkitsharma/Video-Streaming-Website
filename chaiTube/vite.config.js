@@ -10,7 +10,7 @@ export default defineConfig({
       // "/foo": "http://localhost:4567",
       // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
       "/api": {
-        target: "http://localhost:3000",
+        target: "https://chai-server.vercel.app",
         changeOrigin: true,
 
         rewrite: (path) => path.replace(/^\/api/, ""),
