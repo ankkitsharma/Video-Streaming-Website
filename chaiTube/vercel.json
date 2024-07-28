@@ -1,7 +1,7 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api(.*)",
       "destination": "https://chai-server.vercel.app"
     }
   ]
