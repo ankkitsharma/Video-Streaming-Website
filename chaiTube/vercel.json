@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api(.*)",
-      "destination": "https://chai-server.vercel.app"
+      "source": "/api/:path*",
+      "destination": "https://chai-server.vercel.app/:path*"
     }
   ]
 }
