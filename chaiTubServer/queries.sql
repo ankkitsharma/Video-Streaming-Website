@@ -20,7 +20,7 @@ CREATE TABLE Videos (
     videoUrl VARCHAR(255) NOT NULL,
     uploadedBy INTEGER REFERENCES Users(userId),
     uploadDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    views INT DEFAULT 0,
+    views INT DEFAULT 0
 );
 
 -- Create Comment table
