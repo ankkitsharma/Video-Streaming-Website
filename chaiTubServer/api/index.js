@@ -1,12 +1,12 @@
 import express from "express";
 import env from "dotenv";
-import authRoutes from "./routes/auth.js";
-import pool from "./dbConfig.js";
+import authRoutes from "../routes/auth.js";
+import pool from "../dbConfig.js";
 import session from "express-session";
 import passport from "passport";
-import "./passport.js";
-import videoRoutes from "./routes/video.js";
-import commentRoutes from "./routes/comments.js";
+import "../passport.js";
+import videoRoutes from "../routes/video.js";
+import commentRoutes from "../routes/comments.js";
 
 const app = express();
 env.config();
