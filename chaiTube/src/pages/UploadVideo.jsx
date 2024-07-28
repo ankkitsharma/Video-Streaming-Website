@@ -3,6 +3,7 @@ import styles from "./UploadVideo.module.css";
 import { userContext } from "../Context/userContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export default function UploadVideo() {
   const navigate = useNavigate();
@@ -25,7 +26,10 @@ export default function UploadVideo() {
     setLoading(true);
     try {
       const videoData = { title, description, imgUrl, videoUrl, userid };
-      const response = await axios.post(`/api/video/uploadVideo`, videoData);
+      const response = await axios.post(
+        `${HOST_PORT}/video/uploadVideo`,
+        videoData
+      );
       console.log(response.data);
       navigate("/");
       setLoading(false);

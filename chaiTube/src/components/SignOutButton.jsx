@@ -4,13 +4,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userContext } from "../Context/userContext";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export default function SignOutButton() {
   const { setUser } = useContext(userContext);
   const navigate = useNavigate();
   const onClick = async () => {
     try {
-      const response = await axios.get("/api/auth/signOut");
+      const response = await axios.get(HOST_PORT + "/auth/signOut");
       console.log(response.data);
       setUser();
       navigate("/");

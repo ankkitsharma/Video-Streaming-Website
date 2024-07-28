@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userContext } from "../Context/userContext";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export default function signUp() {
   const { setUser } = useContext(userContext);
@@ -33,14 +34,17 @@ export default function signUp() {
   const onSubmit = async (data) => {
     try {
       console.log("Sign up data: ", data);
-      const response = await axios.post("/api/auth/signUp", data);
+      const response = await axios.post(HOST_PORT + "/auth/signUp", data);
       console.log("Sign up response: ", response.data);
       try {
         const signInData = {
           email: data.email,
           password: data.password,
         };
-        const signInResponse = await axios.post("/api/auth/signIn", signInData);
+        const signInResponse = await axios.post(
+          HOST_PORT + "/auth/signIn",
+          signInData
+        );
         console.log("Sign in response: ", signInResponse.data);
         setUser(signInResponse.data.user);
         navigate("/");

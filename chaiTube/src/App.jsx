@@ -5,6 +5,7 @@ import TopBar from "./components/TopBar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { userContext } from "./Context/userContext";
+const HOST_PORT = import.meta.env.HOST_PORT;
 
 function App() {
   const [user, setUser] = useState();
@@ -12,7 +13,7 @@ function App() {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get("/api/auth/getUser");
+        const response = await axios.get(HOST_PORT + "/auth/getUser");
         if (response.status === 200) {
           setUser(response.data.user);
         } else {

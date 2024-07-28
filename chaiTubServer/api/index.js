@@ -7,8 +7,10 @@ import passport from "passport";
 import "../passport.js";
 import videoRoutes from "../routes/video.js";
 import commentRoutes from "../routes/comments.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 env.config();
 const port = process.env.PORT;
 

@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Video from "../components/Video";
 import styles from "./Index.module.css";
 import { nanoid } from "nanoid";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export const SearchPage = () => {
   const [videos, setVideos] = useState([]);
@@ -11,7 +12,7 @@ export const SearchPage = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get(`/api/video/search${query}`);
+        const response = await axios.get(`${HOST_PORT}/video/search${query}`);
         setVideos(response.data.videos);
         console.log(response.data);
       } catch (error) {

@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userContext } from "../Context/userContext";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export default function signIn() {
   const { setUser } = useContext(userContext);
@@ -24,7 +25,7 @@ export default function signIn() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("/api/auth/signIn", data);
+      const response = await axios.post(HOST_PORT + "/auth/signIn", data);
       console.log(response.data);
       setUser(response.data.user);
       navigate("/");

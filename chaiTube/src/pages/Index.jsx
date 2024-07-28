@@ -5,11 +5,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
+
 export default function Index() {
   const [videos, setVideos] = useState([]);
   async function getVideos() {
     try {
-      const response = await axios.get("/api/video/getVideos");
+      const response = await axios.get(HOST_PORT + "/video/getVideos");
+      console.log("HOST_PORT ", HOST_PORT);
       setVideos(response.data.videos);
       console.log(response.data);
     } catch (error) {

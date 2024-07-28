@@ -11,19 +11,22 @@ import axios from "axios";
 import { useLoaderData, Form, redirect, useNavigate } from "react-router-dom";
 import { userContext } from "../Context/userContext";
 import { nanoid } from "nanoid";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export async function loader({ params }) {
   try {
-    const response1 = await axios.get("/api/video/getVideo/" + params.videoId);
+    const response1 = await axios.get(
+      HOST_PORT + "/video/getVideo/" + params.videoId
+    );
     console.log("response1.data ", response1.data);
     const response2 = await axios.get(
-      "/api/comments/getComments/" + params.videoId
+      HOST_PORT + "/comments/getComments/" + params.videoId
     );
-    const response3 = await axios.get("/api/video/getVideos");
+    const response3 = await axios.get(HOST_PORT + "/video/getVideos");
     console.log("response3.data ", response3.data);
 
     try {
-      await axios.patch(`/api/video/increaseViews/${params.videoId}`);
+      await axios.patch(`${HOST_PORT}/video/increaseViews/${params.videoId}`);
     } catch (error) {
       console.error("Failed to increase views:", error.message);
     }
@@ -42,7 +45,7 @@ export async function action({ request, params }) {
   const formData = await request.formData();
   const { userId, commentText } = Object.fromEntries(formData);
   try {
-    await axios.post("/api/comments/addComment/" + params.videoId, {
+    await axios.post(HOST_PORT + "/comments/addComment/" + params.videoId, {
       userId,
       commentText,
     });
@@ -72,7 +75,9 @@ export default function VideoPage() {
 
   const getLikes = async () => {
     try {
-      const response = await axios.get("/api/video/getLikes/" + video.videoid);
+      const response = await axios.get(
+        HOST_PORT + "/video/getLikes/" + video.videoid
+      );
       setLikes(response.data.likes);
 
       if (user) {
@@ -97,7 +102,7 @@ export default function VideoPage() {
       }
       const actionType = likeStatus === 0 || likeStatus === -1 ? 1 : 0;
       const response = await axios.post(
-        "/api/video/likeVideo/" + video.videoid,
+        HOST_PORT + "/video/likeVideo/" + video.videoid,
         {
           userId: user.userid,
           actionType: actionType,
@@ -117,7 +122,7 @@ export default function VideoPage() {
       }
       const actionType = likeStatus === 0 || likeStatus === 1 ? -1 : 0;
       const response = await axios.post(
-        "/api/video/likeVideo/" + video.videoid,
+        HOST_PORT + "/video/likeVideo/" + video.videoid,
         {
           userId: user.userid,
           actionType: actionType,
@@ -140,7 +145,7 @@ export default function VideoPage() {
       }
       const actionType = 1;
       const response = await axios.post(
-        `/api/video/subscription/${video.uploadedby}`,
+        HOST_PORT + `/video/subscription/${video.uploadedby}`,
         {
           subscriberId: user.userid,
           actionType: actionType,
@@ -160,7 +165,7 @@ export default function VideoPage() {
       }
       const actionType = 0;
       const response = await axios.post(
-        `/api/video/subscription/${video.uploadedby}`,
+        HOST_PORT + `/video/subscription/${video.uploadedby}`,
         {
           subscriberId: user.userid,
           actionType: actionType,
@@ -176,7 +181,7 @@ export default function VideoPage() {
   const getSubscriptions = async () => {
     try {
       const response = await axios.get(
-        `/api/video/getSubscriptions/${video.uploadedby}`
+        `${HOST_PORT}/video/getSubscriptions/${video.uploadedby}`
       );
 
       setSubscriptions(response.data.subscriptions);

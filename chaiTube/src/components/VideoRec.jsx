@@ -37,12 +37,13 @@ export default function VideoRec({
 
   useEffect(() => {
     setTimeDiff(calculateTimeDifference(uploadDate));
+    console.log("thumbnail ", thumbnail);
   }, []);
   return (
     <div className={styles.videoRec}>
       <img
         className={styles.thumbnail}
-        src={thumbnail}
+        src={"/" + thumbnail}
         width={168}
         height={94}
       ></img>

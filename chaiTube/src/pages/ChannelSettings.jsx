@@ -3,6 +3,7 @@ import styles from "./channelSettings.module.css";
 import { userContext } from "../Context/userContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const HOST_PORT = import.meta.env.VITE_HOST_PORT;
 
 export default function ChannelSettings() {
   const { user, setUser } = useContext(userContext);
@@ -25,7 +26,10 @@ export default function ChannelSettings() {
     setLoading(true);
     try {
       const userData = { age, img };
-      const response = await axios.patch(`/api/auth/updateUser`, userData);
+      const response = await axios.patch(
+        `${HOST_PORT}/auth/updateUser`,
+        userData
+      );
       setUser(response.data.user);
       setLoading(false);
     } catch (error) {
