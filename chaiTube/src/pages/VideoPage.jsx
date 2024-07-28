@@ -20,6 +20,7 @@ export async function loader({ params }) {
       "/api/comments/getComments/" + params.videoId
     );
     const response3 = await axios.get("/api/video/getVideos");
+    console.log("response3.data ", response3.data);
 
     try {
       await axios.patch(`/api/video/increaseViews/${params.videoId}`);
